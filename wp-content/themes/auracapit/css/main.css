@@ -3621,6 +3621,7 @@ footer .section{
 }
 footer .subscribe{
     margin-top: 5rem;
+	margin-left:0;
 }
 /*Homepage*/
 .thumbnail-about{
@@ -4501,4 +4502,26 @@ aside h3 {
 /* the parent */
 .slick-list {
     margin: 0 -10px;
+}
+.overlay-effect {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  right: 0;
+  opacity: 1;
+  transition: .5s ease;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.38), rgba(255, 255, 255, 0.38));   
+  overflow:hidden;
+}
+.dropdown-menu .item-nav:first-child:before{
+	content:'';
+	display:block;
+	width:150px;
+	padding:0 10px;
+	border-top:1px solid #fff;
+}
+.block-activity .slick-dots{
+	text-align:left;
+	margin:0 20px;
 }

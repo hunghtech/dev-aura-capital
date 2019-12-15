@@ -39,6 +39,7 @@ $post = get_post($post_id);
 
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slicknav.css">
 
+
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 
         <link rel="stylesheet" media="screen" href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.min.css">
@@ -50,10 +51,10 @@ $post = get_post($post_id);
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick.css">
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick-theme.css">
 
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/navbar.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/green.css" media="screen" />
 
-
-        <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-min.js"></script>
+        
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">                
     </head>
 
@@ -70,10 +71,10 @@ $post = get_post($post_id);
     <div class="oveplay"></div>
     <div class="isMobile">
         <div>
-            <img src="assets/images/icon/close.png" alt="" class="closebtn"/>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/close.png" alt="" class="closebtn"/>
         </div>
         <div class="search">
-            <img src="assets/images/mobile/search-white.png" alt="" class="icon-search"/>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/search-white.png" alt="" class="icon-search"/>
         </div>
         <form class="form-search-header" method="get" action="#">
             <div class="form-group">
@@ -94,14 +95,14 @@ $post = get_post($post_id);
                 <div class="navbar-header">
                     <div class="isDesktop">
                         <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo.svg" class="logo" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" class="logo" alt="">
                         </a>
                     </div>
                     <div class="isMobile">
                         <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/mobile/logo-aura.svg" class="logo-mobile" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/logo-aura.svg" class="logo-mobile" alt="">
                         </a>
-                        <img src="assets/images/mobile/navbar-toggler-white.png" class="toggle-menu" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/navbar-toggler-white.png" class="toggle-menu" alt="">
                     </div>
                 </div>
 
@@ -144,7 +145,7 @@ $post = get_post($post_id);
                             <ul class="navbar-nav mr-auto">
                                 <li>
                                     <a href="index.html">
-                                        <img src="assets/images/mobile/logo.png" alt="" class="logo-mobile"/>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/logo.png" alt="" class="logo-mobile"/>
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -178,12 +179,12 @@ $post = get_post($post_id);
                                     <div class="item item-info-foo px-3">
                                         <p class="d-flex align-items-center social_foo">
                                             <a href="#">
-                                                <img src="assets/images/icon/mobile-instagram.svg" class="icon-social"/></a>
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-instagram.svg" class="icon-social"/></a>
                                             <a href="#">
-                                                <img src="assets/images/icon/mobile-youtube.svg" class="icon-social icon-youtube"/></a>
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-youtube.svg" class="icon-social icon-youtube"/></a>
                                             </a>
                                             <a href="#">
-                                                <img src="assets/images/icon/mobile-facebook.svg" class="icon-social"/></a>
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-facebook.svg" class="icon-social"/></a>
                                             </a>
                                         </p>
                                     </div>
@@ -191,7 +192,7 @@ $post = get_post($post_id);
                                         <div class="item item-info-foo px-3 d-flex align-items-center">
                                             <p>Subscribe to our newsletter </p>
                                             <a href="#">
-                                                <img src="assets/images/icon/email.svg" class="newsletter" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon/email.svg" class="newsletter" alt="">
                                             </a>
                                         </div>
                                         <div class="item item-info-foo px-3">
@@ -211,10 +212,10 @@ $post = get_post($post_id);
         </nav>
         <div class="banner">
             <div class="isDesktop">
-                <img src="assets/images/banner-home.jpg" alt=""/>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/banner-home.jpg" alt=""/>
             </div>
             <div class="isMobile">
-                <img src="assets/images/mobile/banner-home.png" alt=""/>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/banner-home.png" alt=""/>
             </div>
         </div>
     </header>

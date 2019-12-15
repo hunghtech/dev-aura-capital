@@ -127,4 +127,4 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js"></script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.slicknav.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/start.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/start.js"></script>        

@@ -1480,31 +1480,31 @@ function create_article_taxonomies() {
 
 /**
 
- * Register a custom post type called "Projects".
+ * Register a custom post type called "The commitment".
 
  *
 
  * @see get_post_type_labels() for label keys.
 
  */
-function wpdocs_codex_project_init() {
+function wpdocs_codex_commitment_init() {
 
     $labels = array(
-        'name' => _x('Projects', 'Post type general name', 'textdomain'),
-        'singular_name' => _x('Projects', 'Post type singular name', 'textdomain'),
-        'menu_name' => _x('Projects', 'Admin Menu text', 'textdomain'),
-        'name_admin_bar' => _x('Projects', 'Add New on Toolbar', 'textdomain'),
+        'name' => _x('The Commitments', 'Post type general name', 'textdomain'),
+        'singular_name' => _x('The Commitments', 'Post type singular name', 'textdomain'),
+        'menu_name' => _x('The Commitments', 'Admin Menu text', 'textdomain'),
+        'name_admin_bar' => _x('The Commitments', 'Add New on Toolbar', 'textdomain'),
         'add_new' => __('Add New', 'textdomain'),
-        'add_new_item' => __('Add New Projects', 'textdomain'),
-        'new_item' => __('New Projects', 'textdomain'),
-        'edit_item' => __('Edit Projects', 'textdomain'),
-        'view_item' => __('View Projects', 'textdomain'),
-        'all_items' => __('All Projects', 'textdomain'),
+        'add_new_item' => __('Add New The Commitments', 'textdomain'),
+        'new_item' => __('New The Commitment', 'textdomain'),
+        'edit_item' => __('Edit The Commitment', 'textdomain'),
+        'view_item' => __('View The Commitment', 'textdomain'),
+        'all_items' => __('All The Commitment', 'textdomain'),
         'search_items' => __('Search Articles', 'textdomain'),
-        'parent_item_colon' => __('Parent Projects:', 'textdomain'),
+        'parent_item_colon' => __('Parent The Commitment:', 'textdomain'),
         'not_found' => __('No articles found.', 'textdomain'),
-        'not_found_in_trash' => __('No Projects found in Trash.', 'textdomain'),
-        'featured_image' => _x('Projects Featured Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain'),
+        'not_found_in_trash' => __('No The Commitments found in Trash.', 'textdomain'),
+        'featured_image' => _x('The Commitments Featured Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain'),
         'set_featured_image' => _x('Set featured image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain'),
         'remove_featured_image' => _x('Remove featured image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain'),
         'use_featured_image' => _x('Use as featured image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain'),
@@ -1525,7 +1525,7 @@ function wpdocs_codex_project_init() {
         'show_ui' => true,
         'show_in_menu' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'du-an'),
+        'rewrite' => array('slug' => 'commitment'),
         'capability_type' => 'post',
         'has_archive' => true,
         'hierarchical' => false,
@@ -1535,17 +1535,17 @@ function wpdocs_codex_project_init() {
 
 
 
-    register_post_type('project', $args);
+    register_post_type('commitment', $args);
 }
 
-add_action('init', 'wpdocs_codex_project_init');
+add_action('init', 'wpdocs_codex_commitment_init');
 
 
-add_action('init', 'create_project_taxonomies', 0);
+add_action('init', 'create_commitment_taxonomies', 0);
 
-// create two taxonomies, categories and tags for the post type "project"
+// create two taxonomies, categories and tags for the post type "commitment"
 
-function create_project_taxonomies() {
+function create_commitment_taxonomies() {
 
     // Add new taxonomy, make it hierarchical (like categories)
 
@@ -1571,12 +1571,12 @@ function create_project_taxonomies() {
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'danh-muc-du-an'),
+        'rewrite' => array('slug' => 'list-commitment'),
     );
 
 
 
-    register_taxonomy('danh-muc-du-an', array('project'), $args);
+    register_taxonomy('list-commitment', array('commitment'), $args);
 
 
 
@@ -1615,111 +1615,9 @@ function create_project_taxonomies() {
 
 
 
-    register_taxonomy('tag2', 'project', $args);
+    register_taxonomy('tag2', 'commitment', $args);
 }
 
-
-
-
-/**
-
- * Register a custom post type called "Projects Sample".
-
- *
-
- * @see get_post_type_labels() for label keys.
-
- */
-function wpdocs_codex_project_sample_init() {
-
-    $labels = array(
-        'name' => _x('Projects Sample', 'Post type general name', 'textdomain'),
-        'singular_name' => _x('Projects Sample', 'Post type singular name', 'textdomain'),
-        'menu_name' => _x('Projects Sample', 'Admin Menu text', 'textdomain'),
-        'name_admin_bar' => _x('Projects Sample', 'Add New on Toolbar', 'textdomain'),
-        'add_new' => __('Add New', 'textdomain'),
-        'add_new_item' => __('Add New Projects Sample', 'textdomain'),
-        'new_item' => __('New Projects Sample', 'textdomain'),
-        'edit_item' => __('Edit Projects Sample', 'textdomain'),
-        'view_item' => __('View Projects Sample', 'textdomain'),
-        'all_items' => __('All Projects Sample', 'textdomain'),
-        'search_items' => __('Search Projects Sample', 'textdomain'),
-        'parent_item_colon' => __('Parent Projects:', 'textdomain'),
-        'not_found' => __('No articles found.', 'textdomain'),
-        'not_found_in_trash' => __('No Projects found in Trash.', 'textdomain'),
-        'featured_image' => _x('Projects Featured Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain'),
-        'set_featured_image' => _x('Set featured image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain'),
-        'remove_featured_image' => _x('Remove featured image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain'),
-        'use_featured_image' => _x('Use as featured image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain'),
-        'archives' => _x('Projects archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'textdomain'),
-        'insert_into_item' => _x('Insert into article', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'textdomain'),
-        'uploaded_to_this_item' => _x('Uploaded to this article', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'textdomain'),
-        'filter_items_list' => _x('Filter articles list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'textdomain'),
-        'items_list_navigation' => _x('Projects list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain'),
-        'items_list' => _x('Projects list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain'),
-    );
-
-
-
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'publicly_queryable' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'du-an-mau'),
-        'capability_type' => 'post',
-        'has_archive' => true,
-        'hierarchical' => false,
-        'menu_position' => null,
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-    );
-
-
-
-    register_post_type('project-sample', $args);
-}
-
-add_action('init', 'wpdocs_codex_project_sample_init');
-
-
-add_action('init', 'create_project_sample_taxonomies', 0);
-
-// create two taxonomies, categories and tags for the post type "project"
-
-function create_project_sample_taxonomies() {
-
-    // Add new taxonomy, make it hierarchical (like categories)
-
-    $labels = array(
-        'name' => _x('Categories', 'taxonomy general name'),
-        'singular_name' => _x('Category', 'taxonomy singular name'),
-        'search_items' => __('Search Categories'),
-        'all_items' => __('All Categories'),
-        'parent_item' => __('Parent Category'),
-        'parent_item_colon' => __('Parent Category:'),
-        'edit_item' => __('Edit Category'),
-        'update_item' => __('Update Category'),
-        'add_new_item' => __('Add New Category'),
-        'new_item_name' => __('New Category Name'),
-        'menu_name' => __('Categories'),
-    );
-
-
-
-    $args = array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'danh-muc-du-an-mau'),
-    );
-
-    register_taxonomy('danh-muc-du-an-mau', array('project-sample'), $args);
-    
-}
 
 function format_string($string, $len) {
 
