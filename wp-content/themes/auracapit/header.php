@@ -18,6 +18,13 @@
  */
 $post_id = get_the_ID();
 $post = get_post($post_id);
+$bannerDeskTop = get_field('banner_desktop',$post_id);
+$bannerMobile = get_field('banner_mobile',$post_id);
+$slug = $post->post_name;
+$logo = "logo.svg";
+if($slug == "investment"){
+    $logo = "logo-investment.svg";
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +65,7 @@ $post = get_post($post_id);
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">                
     </head>
 
-    <body>
+    <body class="<?php echo  $slug;?>">
     <!--Loading-->
     <div class="transition-curtains">
         <div class="transition-curtains__curtain"></div>
@@ -94,12 +101,12 @@ $post = get_post($post_id);
             <div class="menu-header">
                 <div class="navbar-header">
                     <div class="isDesktop">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" class="logo" alt="">
+                        <a class="navbar-brand" href="/">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $logo;?>" class="logo" alt="">
                         </a>
                     </div>
                     <div class="isMobile">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/logo-aura.svg" class="logo-mobile" alt="">
                         </a>
                         <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/navbar-toggler-white.png" class="toggle-menu" alt="">
@@ -128,13 +135,13 @@ $post = get_post($post_id);
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/investment.html">Investment</a>
+                                <a class="nav-link" href="/investment">Investment</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/investor.html">Investors</a>
+                                <a class="nav-link" href="/investor">Investors</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="service.html">News</a>
+                                <a class="nav-link" href="#">News</a>
                             </li>
                         </ul>
                     </div>
@@ -154,21 +161,21 @@ $post = get_post($post_id);
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="item-nav ">
-                                            <a href="/index.html#about">About</a>
+                                            <a href="/#about">About</a>
                                         </li>
                                         <li class="item-nav ">
-                                            <a href="/index.html#commitment">The Commitment</a>
+                                            <a href="/#commitment">The Commitment</a>
                                         </li>
                                         <li class="item-nav ">
-                                            <a href="/index.html#milestone">Milestones</a>
+                                            <a href="/#milestone">Milestones</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/investment-mobile.html">Investment</a>
+                                    <a class="nav-link" href="/investment">Investment</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/investor-mobile.html">Investors</a>
+                                    <a class="nav-link" href="/investor">Investors</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">News</a>
@@ -212,10 +219,10 @@ $post = get_post($post_id);
         </nav>
         <div class="banner">
             <div class="isDesktop">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/banner-home.jpg" alt=""/>
+                <img src="<?php echo $bannerDeskTop ;?>" alt=""/>
             </div>
             <div class="isMobile">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/banner-home.png" alt=""/>
+                <img src="<?php echo $bannerMobile ;?>" alt=""/>
             </div>
         </div>
     </header>

@@ -4,18 +4,18 @@
             <div class="row section">
                 <div class="footer-widget col-md-6 col-xs-12 wow fadeIn">
                     <div class="logo-footer">
-                        <img src="assets/images/logo.svg" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="">
                     </div>
                     <div class="social-footer">
                         <a href="#">Follow us: </a>
                         <a href="#">
-                            <img src="assets/images/icon/mobile-instagram.svg" alt/>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-instagram.svg" alt/>
                         </a>
                         <a href="#">
-                            <img src="assets/images/icon/mobile-youtube.svg" alt/>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-youtube.svg" alt/>
                         </a>
                         <a href="#">
-                            <img src="assets/images/icon/mobile-facebook.svg" alt/>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-facebook.svg" alt/>
                         </a>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="row subscribe">
                         <p>Subscribe to our newsletter </p>
                         <a href="#">
-                            <img src="assets/images/icon/email.svg" class="newsletter" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/email.svg" class="newsletter" alt="">
                         </a>
                     </div>
                 </div>
@@ -63,17 +63,17 @@
             <div class="row section">
                 <div class="footer-widget col-md-6 col-xs-12 wow fadeIn">
                     <div class="logo-footer">
-                        <img src="assets/images/mobile/logo-footer.svg" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/logo-footer.svg" alt="">
                     </div>
                     <div class="social-footer d-flex align-items-center">
                         <a href="#">
-                            <img src="assets/images/icon/mobile-instagram.svg" alt/>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-instagram.svg" alt/>
                         </a>
                         <a href="#">
-                            <img src="assets/images/icon/mobile-youtube.svg" class="icon-youtube" alt/>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-youtube.svg" class="icon-youtube" alt/>
                         </a>
                         <a href="#">
-                            <img src="assets/images/icon/mobile-facebook.svg" alt/>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mobile-facebook.svg" alt/>
                         </a>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         <div class="item d-flex align-items-center px-5">
                             <p>Subscribe to our newsletter </p>
                             <a href="#">
-                                <img src="assets/images/icon/email.svg" class="newsletter" alt="">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon/email.svg" class="newsletter" alt="">
                             </a>
                         </div>
                         <div class="item">

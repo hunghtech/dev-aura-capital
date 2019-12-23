@@ -9,9 +9,17 @@
 get_header();
 $postID = get_the_ID();
 $titleAbout = get_field('title',$postID);
+$titleAbout = strip_tags($titleAbout, '<p></p>');
 $descriptionAbout = get_field('description',$postID);
 $linkAbout = get_field('link',$postID);
 $thumbnailAbout = get_field('thumbnail',$postID);
+
+//MileStone
+$thumbnailMileStone = get_field('thumbnail_milestone',$postID);
+$titleMileStone = get_field('title_milestone',$postID);
+$descriptionMileStone = get_field('description_milestone',$postID);
+$backgroundTextMileStone = get_field('background_text',$postID);
+$linkMileStone = get_field('link_milestone',$postID);
 
 // get commitment
 $args = array(
@@ -29,7 +37,22 @@ $terms = get_terms( array(
     'hide_empty' => false,
     'orderby' => 'date',
     'order' => 'ASC',
-) );
+));
+
+//get articles
+// get course list
+$args = array(
+    'numberposts' => 2,
+    'offset' => 0,
+    'include' => '',
+    'orderby' => 'date',                
+    'order' => 'ASC',
+    'exclude' => '',
+    'post_type' => 'article',
+    'post_status' => 'publish',
+    'suppress_filters' => true
+);
+$articles = get_posts($args);
 ?>  
 <section id="about" class="wow fadeIn" data-wow-delay=".5s">            
     <div class="isDesktop">
@@ -43,7 +66,9 @@ $terms = get_terms( array(
                         About Aura
                     </p>
                     <h3>
-                        <?php echo $titleAbout ;?>
+                        AURA<br/>
+                        CAPITAL‘S<br/>
+                        BIZ MODEL                        
                     </h3>
                     <div class="description">
                         <?php echo $descriptionAbout ;?>
@@ -106,14 +131,15 @@ $terms = get_terms( array(
                             <?php foreach($commitments as $commitment){
                                 $description = get_field('description',$commitment->ID);
                                 $srcImage = wp_get_attachment_url(get_post_thumbnail_id($commitment->ID));
+                                $term = get_the_terms($commitment->ID,'list-commitment');                                
                             ?>
-                            <div class="commitment-item real-estate">
+                            <div class="commitment-item <?php echo $term[0]->slug?>">
                                 <img src="<?php echo $srcImage ;?>" alt=""/> 
                                 <div class="description">
                                     <span class="date">
                                         <?php echo $commitment->post_title ;?> | FROM <?php echo date('M Y', strtotime($commitment->post_date)); ?> - NOW
                                     </span>
-                                    <p class="title">Real Estate</p>
+                                    <p class="title"><?php echo $term[0]->name?></p>
                                     <p class="fivo-light">
                                         <?php echo $description ;?>
                                     </p>
@@ -190,14 +216,13 @@ $terms = get_terms( array(
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-8 wow fadeIn" data-wow-delay=".5s">
-                    <img src="assets/images/milestone.png" class="w-100" alt=""/>
+                    <img src="<?php echo $thumbnailMileStone ;?>" class="w-100" alt=""/>
                     <div class="description">
-                        <h4>Event calendar</h4>
+                        <h4><?php echo $titleMileStone ;?></h4>
                         <p class="pt-4 mb-50 fivo-light">
-                            All pictures and information of events held by<br/>                             
-                            AURA and our upcoming events.  
+                            <?php echo $descriptionMileStone ;?>
                         </p>
-                        <a href="#" class="see-more fivo-light">
+                        <a href="<?php echo $linkMileStone ;?>" class="see-more fivo-light">
                             <span>Book a slot</span>                                    
                         </a>
                     </div>                        
@@ -208,7 +233,7 @@ $terms = get_terms( array(
                     </h4>
                     <div class="bg-text">
                         <div class="bg-color"></div>
-                        <img src="assets/images/bg-text.png" alt/>                            
+                        <img src="<?php echo $backgroundTextMileStone ;?>" alt/>                            
                     </div>                        
                 </div>
             </div>
@@ -221,13 +246,12 @@ $terms = get_terms( array(
             <div class="col-12">
                 <img src="assets/images/mobile/milestone.png" class="w-100" alt=""/>
                 <div class="description">
-                    <h4>Event calendar</h4>
+                    <h4><?php echo $titleMileStone ;?></h4>
                     <p class="mb-50 fivo-light">
-                        All pictures and information of events held by
-                        AURA and our upcoming events.  
+                        <?php echo $descriptionMileStone ;?>  
                     </p>                                
                 </div>  
-                <a href="#" class="see-more fivo-light">Book a slot</a>                      
+                <a href="<?php echo $linkMileStone ;?>" class="see-more fivo-light">Book a slot</a>                      
             </div>
         </div>
     </section>            
@@ -237,98 +261,113 @@ $terms = get_terms( array(
 <section id="news" class="section">
     <div class="row">
         <div class="bg-month">
-            <img src="assets/images/bg-month.png" alt=""/>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/bg-month.png" alt=""/>
         </div>                    
     </div>
     <div class="container">  
 
         <!--Desktop-->
         <div class="isDesktop">
+            <?php foreach($articles as $index=>$article){
+                $srcImage = wp_get_attachment_url(get_post_thumbnail_id($article->ID));
+                $link = get_field('link',$article->ID);
+                $gallery = get_field('gallery',$article->ID);
+            if($index == 0) { ?>
             <div class="row">
                 <div class="col-sm-6 col-md-6">
-                    <img src="assets/images/news.png" class="thumbnail-news" alt=""/>                                            
+                    <img src="<?php echo $srcImage ;?>" class="thumbnail-news" alt=""/>                                            
                 </div>
                 <div class="col-sm-6 col-md-6">
                     <div class="description">
                         <h4>News</h4>
                         <p class="pt-4 mb-50 fivo-light">
-                            Lasted news from Aura Capital 
+                            <?php echo $article->post_content ;?>
                         </p>
-                        <a href="#" class="see-more fivo-light">
+                        <a href="<?php echo $link ;?>" class="see-more fivo-light">
                             <span>View more</span>
                         </a>
                     </div>                        
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-6">
-                    <div class="description description-carousel">
-                        <p class="pt-4 mb-50 fivo-light">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendre
-                        </p>
-                        <a href="#" class="see-more fivo-light">
-                            <span>View more</span>
-                        </a>
-                    </div>                        
-                </div>
-                <div class="col-sm-6 col-md-6 wow fadeIn" data-wow-delay="1s">
-                    <div id="carousel-area">
-                        <div id="carousel-new" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-new" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-new" data-slide-to="1"></li>
-                            </ol>
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <img src="assets/images/news2.png" alt="" class="thumbnail-news">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="assets/images/news2.png" alt="" class="thumbnail-news">
+            <?php 
+                } else {
+            ?>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="description description-carousel">
+                            <p class="pt-4 mb-50 fivo-light">
+                                <?php echo $article->post_content ;?>
+                            </p>
+                            <a href="<?php echo $link ;?>" class="see-more fivo-light">
+                                <span>View more</span>
+                            </a>
+                        </div>                        
+                    </div>
+                    <div class="col-sm-6 col-md-6 wow fadeIn" data-wow-delay="1s">
+                        <?php if(count($gallery) > 0){?>
+                        <div id="carousel-area">
+                            <div id="carousel-new" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <?php foreach($gallery as $index=>$item){?>
+                                        <li data-target="#carousel-new" data-slide-to="<?php echo $index?>" class="<?php echo ($index == 0)?'active':''?>"></li>
+                                    <?php }?>
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                    <?php foreach($gallery as $index=>$item){?>
+                                        <div class="carousel-item <?php echo ($index == 0)?'active':''?>">
+                                            <img src="<?php echo $item['url']?>" alt="" class="thumbnail-news">
+                                        </div>
+                                    <?php }?>
                                 </div>
                             </div>
-                            <!--<a class="carousel-control-prev" href="#carousel-new" role="button" data-slide="prev">
-                                <span class="carousel-control carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carousel-new" role="button" data-slide="next">
-                                <span class="carousel-control carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>-->
                         </div>
-                    </div>                             
-                </div>                    
-            </div>                
+                        <?php }?>                             
+                    </div>                    
+                </div>
+            <?php    
+                }
+                }
+            ?>                        
         </div>
 
         <!--Mobile-->
 
         <div class="isMobile">
-            <div class="row mb-50">
-                <div class="col-sm-6 col-md-6">
-                    <div class="description">
-                        <h4>News</h4>
-                        <p class="mb-50 fivo-light">
-                            Lasted news from Aura Capital 
-                        </p>                            
-                    </div>                        
+            <?php foreach($articles as $index=>$article){
+                $srcImage = wp_get_attachment_url(get_post_thumbnail_id($article->ID));
+                $link = get_field('link',$article->ID);
+                if($index == 0){?>
+                <div class="row mb-50">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="description">
+                            <h4>News</h4>
+                            <p class="mb-50 fivo-light">
+                                <?php echo $article->post_content;?>
+                            </p>                            
+                        </div>                        
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <img src="<?php echo $srcImage ;?>" class="w-100" alt=""/>
+                        <a href="<?php echo $link ;?>" class="see-more fivo-light">
+                            See more
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>                    
                 </div>
-                <div class="col-sm-6 col-md-6">
-                    <img src="assets/images/mobile/news.png" class="w-100" alt=""/>
-                    <a href="#" class="see-more fivo-light">
-                        See more
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>                    
-            </div>
-            <div class="row mt-40">                    
-                <div class="col-12">
-                    <img src="assets/images/mobile/news2.png" class="w-100" alt=""/>
-                    <a href="#" class="see-more fivo-light">
-                        See more
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>                    
-            </div>
+            <?php } else{?>
+                <div class="row mt-40">                    
+                    <div class="col-12">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/mobile/news2.png" class="w-100" alt=""/>
+                        <a href="<?php echo $link ;?>" class="see-more fivo-light">
+                            See more
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>                    
+                </div>
+            <?php
+                }
+            }
+            ?>                        
         </div>
 
     </div>
