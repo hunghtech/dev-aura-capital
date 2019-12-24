@@ -124,21 +124,21 @@ if($slug == "investment"){
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="item-nav ">
-                                        <a href="#about">About</a>
+                                        <a href="<?php echo get_site_url(); ?>#about">About</a>
                                     </li>
                                     <li class="item-nav ">
-                                        <a href="#commitment">The Commitment</a>
+                                        <a href="<?php echo get_site_url(); ?>#commitment">The Commitment</a>
                                     </li>
                                     <li class="item-nav ">
-                                        <a href="#milestone">Milestones</a>
+                                        <a href="<?php echo get_site_url(); ?>#milestone">Milestones</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/investment">Investment</a>
+                                <a class="nav-link" href="<?php echo get_site_url(); ?>/investment">Investment</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/investor">Investors</a>
+                                <a class="nav-link" href="<?php echo get_site_url(); ?>/investor">Investors</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">News</a>
@@ -161,21 +161,21 @@ if($slug == "investment"){
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="item-nav ">
-                                            <a href="/#about">About</a>
+                                            <a href="<?php echo get_site_url(); ?>/#about">About</a>
                                         </li>
                                         <li class="item-nav ">
-                                            <a href="/#commitment">The Commitment</a>
+                                            <a href="<?php echo get_site_url(); ?>/#commitment">The Commitment</a>
                                         </li>
                                         <li class="item-nav ">
-                                            <a href="/#milestone">Milestones</a>
+                                            <a href="<?php echo get_site_url(); ?>/#milestone">Milestones</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/investment">Investment</a>
+                                    <a class="nav-link" href="<?php echo get_site_url(); ?>/investment">Investment</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/investor">Investors</a>
+                                    <a class="nav-link" href="<?php echo get_site_url(); ?>/investor">Investors</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">News</a>
