@@ -65,7 +65,7 @@ if($slug == "investment"){
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">                
     </head>
 
-    <body class="<?php echo  $slug;?>">
+    <body class="<?php echo  ($slug != 'introduction')?$slug:'';?>">
     <!--Loading-->
     <div class="transition-curtains">
         <div class="transition-curtains__curtain"></div>
